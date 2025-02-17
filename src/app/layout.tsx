@@ -5,6 +5,7 @@ import './globals.css'
 import { ThemeProvider } from 'next-themes'
 import { Toaster } from '@/components/ui/toaster'
 import { APP_DESCRIPTION, APP_NAME } from '@/lib/constants'
+import ResponsiveNavbar from '@/components/navbar/responsive-nav'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -31,6 +32,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ResponsiveNavbar />
           {children}
           <Toaster />
         </ThemeProvider>

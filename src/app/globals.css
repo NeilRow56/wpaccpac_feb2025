@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .nav_link {
+    @apply relative block w-fit text-base font-medium after:absolute after:block after:h-[3px] after:w-full after:origin-right after:scale-x-0 after:bg-yellow-600 after:transition after:duration-300 after:content-[""] after:hover:scale-x-100;
+  }
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }

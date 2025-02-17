@@ -1,10 +1,13 @@
 import Home from '@/components/home/home'
-import { Button } from '@/components/ui/button'
+import { Pricing } from '@/components/home/pricing'
 
 export default function HomePage() {
   return (
     <div className=''>
       <Home />
+      <div className='container mx-auto'>
+        <Pricing />
+      </div>
     </div>
   )
 }

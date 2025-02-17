@@ -4,6 +4,7 @@ import { navbarLinks } from '@/lib/constants'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { HiBars3BottomRight } from 'react-icons/hi2'
+import { Button } from '../ui/button'
 
 type NavbarProps = {
   openNavbar: () => void
@@ -41,9 +42,12 @@ const NavbarFull = ({ openNavbar }: NavbarProps) => {
         </div>
         {/* Buttons */}
         <div className='flex items-center space-x-4'>
-          <button className='rounded-full bg-blue-700 px-6 py-2 text-base font-semibold text-white transition-all duration-200 hover:bg-blue-900 md:px-8 md:py-2.5'>
-            Join Now
-          </button>
+          <Button
+            asChild
+            className='rounded-full bg-blue-700 px-6 py-2 text-base font-semibold text-white transition-all duration-200 hover:bg-blue-900 md:px-8 md:py-2.5'
+          >
+            <Link href='/sign-in'>Join Now</Link>
+          </Button>
           {/* Burger menu */}
           <HiBars3BottomRight
             onClick={openNavbar}

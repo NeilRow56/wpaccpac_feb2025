@@ -5,8 +5,18 @@ import Link from 'next/link'
 
 export default function HeroPage() {
   return (
-    <div className='h-screen w-full bg-[#f7f6fb] pt-[9vh] md:pt-[14vh]'>
+    <div className='h-screen w-full bg-[#f7f6fb] pt-[3vh]'>
       <div className='mx-auto flex w-[90%] flex-col justify-center sm:w-[80%]'>
+        <div className='flex w-full justify-between'>
+          <div></div>
+          <Button
+            asChild
+            size='lg'
+            className='mt-8 rounded-full bg-green-500 px-6 py-6 text-xl font-semibold text-white transition-all duration-200 hover:bg-green-500/70 md:px-8 md:py-2.5'
+          >
+            <Link href='/sign-in'>Join Now</Link>
+          </Button>
+        </div>
         <div className='grid grid-cols-1 items-center gap-12 lg:grid-cols-2'>
           {/* Text Content */}
           <div>
@@ -41,9 +51,19 @@ export default function HeroPage() {
                 Try for Free - full pricing schedule below
               </p>
             </div>
+            <div className='mt-4 hidden lg:block'>
+              <Image
+                className='rounded-lg'
+                src='/images/a.jpg'
+                alt='Hero image'
+                width={300}
+                height={300}
+              />
+            </div>
           </div>
 
           {/* Image Content */}
+
           <div className='hidden lg:block'>
             <Image
               src='/images/hero.png'

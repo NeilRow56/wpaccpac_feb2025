@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card'
-import { ArrowBigUp, ArrowUp, Check } from 'lucide-react'
+import { ArrowUp, Check } from 'lucide-react'
 import Link from 'next/link'
 // import Link from "next/link";
 // import PaymentLink from "./PaymentLink";

@@ -1,6 +1,7 @@
 import { AdminSidebar } from '@/components/dashboard/admin-sidebar'
 import { DashboardItems } from '@/components/dashboard/dashboard-items'
 import { ThemeToggle } from '@/components/dashboard/theme-toggle'
+import Footer from '@/components/shared/footer'
 import { Button } from '@/components/ui/button'
 
 import { Separator } from '@/components/ui/separator'
@@ -40,7 +41,8 @@ function AdminLayout({ children }: NavbarProps) {
           </div>
         </header>
 
-        <main className='container mx-auto mt-16'>{children}</main>
+        <main className='container mx-auto mt-16 h-screen'>{children}</main>
+        <Footer />
       </SidebarInset>
     </SidebarProvider>
   )

@@ -1,6 +1,8 @@
 import { ClientSidebar } from '@/components/client/client-sidebar'
 
 import { DashboardItems } from '@/components/dashboard/dashboard-items'
+import { ThemeToggle } from '@/components/dashboard/theme-toggle'
+import { Button } from '@/components/ui/button'
 
 import { Separator } from '@/components/ui/separator'
 import {
@@ -30,11 +32,16 @@ function ClientLayout({ children }: NavbarProps) {
             {/* NavbarLinks */}
 
             <DashboardItems />
-            <div className=''>USER</div>
+            <div className='flex items-center gap-3'>
+              <ThemeToggle />
+              <div>
+                <Button>User</Button>
+              </div>
+            </div>
           </div>
         </header>
 
-        <main className='container mx-auto mt-16 bg-green-100'>{children}</main>
+        <main className='container mx-auto mt-16'>{children}</main>
       </SidebarInset>
     </SidebarProvider>
   )

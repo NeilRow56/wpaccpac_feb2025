@@ -69,7 +69,7 @@ const pricingList: PricingProps[] = [
   {
     title: 'Enterprise',
     popular: 0,
-    price: 99,
+    price: 499,
     description:
       'Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.',
     buttonText: 'Buy Now',

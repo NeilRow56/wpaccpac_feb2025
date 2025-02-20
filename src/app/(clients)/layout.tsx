@@ -12,7 +12,8 @@ import {
   SidebarTrigger
 } from '@/components/ui/sidebar'
 
-import React from 'react'
+import React, { Suspense } from 'react'
+import LoadingPage from '../loading'
 
 type NavbarProps = {
   children: React.ReactNode
@@ -43,6 +44,7 @@ function ClientLayout({ children }: NavbarProps) {
         </header>
 
         <main className='container mx-auto mt-16 h-screen'>{children}</main>
+
         <Footer />
       </SidebarInset>
     </SidebarProvider>

@@ -1,5 +1,9 @@
-import React from 'react'
-
-export default function PlanningPage() {
-  return <div>Planning Page</div>
+const PlanningPage = () => {
+  return (
+    <div>
+      <h1>Planning page</h1>
+    </div>
+  )
 }
+
+export default PlanningPage

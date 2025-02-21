@@ -1,0 +1,71 @@
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+
+
+
+model User {
+  id              String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email           String         @unique(map: "user_email_idx")
+  name            String         @db.VarChar(80)
+  createdAt       DateTime       @default(now()) @db.Timestamp(0)
+  updatedAt       DateTime       @default(now()) @db.Timestamp(0)
+  clients         Client[]
+ 
+    @@map("users")
+}
+
+model Client {
+  id              String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name            String
+  category        ClientCategory 
+  status          ClientStatus
+  userId          String      @db.Uuid
+  contactInfo     String
+  isActive        Boolean     @default(true)
+  createdAt       DateTime    @default(now()) @db.Timestamp(0)
+  updatedAt       DateTime    @default(now()) @db.Timestamp(0)
+  users           User        @relation(fields: [userId], references: [id])
+  yearFiles       YearFile[]
+
+  @@map("clients")
+}
+
+model YearFile {
+  id              String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  period          String
+  slug            String      @unique
+  shortDate       Int
+  periodStart     DateTime
+  periodEnd       DateTime
+  createdAt       DateTime    @default(now()) @db.Timestamp(6)
+  updatedAt       DateTime    @default(now()) @db.Timestamp(6)
+  clientId        String      @db.Uuid
+  client          Client      @relation(fields: [clientId], references: [id])
+
+  @@map("yearFiles")
+}
+
+enum ClientCategory {
+  limited_company
+  partnership
+  sole_trader
+  charity
+  other
+}
+
+enum ClientStatus {
+  awaiting_ml_checks
+  active
+  archived
+  stop_work
+}

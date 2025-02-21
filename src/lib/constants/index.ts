@@ -12,11 +12,18 @@ export const APP_DESCRIPTION =
 //export const SERVER_URL =
 //  process.env.NEXT_PUBLIC_SERVER_URL || 'https://next-learn-dashboard.vercel.sh' FOR PRODUCTION ONLY
 
+export let role = 'admin'
+
 export const navbarLinks = [
-  { id: 1, url: '/dashboard', label: 'Dashboard' },
-  { id: 2, url: '/clients', label: 'Clients' },
-  { id: 3, url: '/admin', label: 'Admin' },
-  { id: 4, url: '/admin/team', label: 'Team' }
+  {
+    id: 1,
+    url: '/dashboard',
+    label: 'Dashboard',
+    visible: ['admin', 'manager']
+  },
+  { id: 2, url: '/clients', label: 'Clients', visible: ['admin', 'manager'] }
+  // { id: 3, url: '/admin', label: 'Admin', visible: ['admin', 'manager'] },
+  // { id: 4, url: '/admin/team', label: 'Team', visible: ['admin', 'manager'] }
 ]
 
 export const navMain = [
@@ -25,6 +32,7 @@ export const navMain = [
     url: '/dashboard',
     icon: LayoutDashboard,
     isActive: false,
+    visible: ['admin', 'manager', 'staff'],
     items: [
       {
         title: 'Dashboard - home',
@@ -36,6 +44,7 @@ export const navMain = [
     title: 'Clients',
     url: '/clients',
     icon: UsersRoundIcon,
+    visible: ['admin', 'manager', 'staff'],
     items: [
       {
         title: 'clients schedule',
@@ -47,6 +56,7 @@ export const navMain = [
     title: 'Admin',
     url: '/admin',
     icon: ShieldAlertIcon,
+    visible: ['admin'],
     items: [
       {
         title: 'Admin tasks',
@@ -63,6 +73,7 @@ export const navMain = [
     title: 'Team',
     url: '/admin/team',
     icon: User2Icon,
+    visible: ['admin', 'manager', 'staff'],
     items: [
       {
         title: 'Team members',
@@ -78,6 +89,7 @@ export const navClient = [
     url: '/dashboard',
     icon: LayoutDashboard,
     isActive: false,
+    visible: ['admin', 'manager'],
     items: [
       {
         title: 'Dashboard - home',
@@ -90,6 +102,7 @@ export const navClient = [
     title: 'Accounts',
     url: '/accounts',
     icon: ShieldAlertIcon,
+    visible: ['admin', 'manager'],
     items: [
       {
         title: 'Accounts- summary',
@@ -106,6 +119,7 @@ export const navClient = [
     title: 'Planning',
     url: '/accounts/planning',
     icon: User2Icon,
+    visible: ['admin', 'manager'],
     items: [
       {
         title: 'Planning schedules',

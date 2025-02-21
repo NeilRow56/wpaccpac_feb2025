@@ -1,4 +1,4 @@
-import { role } from '@/lib/data'
+import { role } from '@/lib/db/data'
 import Image from 'next/image'
 import Link from 'next/link'
 

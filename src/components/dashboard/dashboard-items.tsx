@@ -1,6 +1,6 @@
 'use client'
 
-import { navbarLinks } from '@/lib/constants'
+import { navbarLinks, role } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 import Link from 'next/link'
@@ -24,6 +24,20 @@ export function DashboardItems() {
           <span className='nav_link hidden md:block'>{item.label}</span>
         </Link>
       ))}
+
+      {role == 'admin' && (
+        <Link
+          href={'/admin'}
+          className={cn(
+            pathname == '/admin(.*)'
+              ? 'bg-muted text-lg font-bold text-primary'
+              : 'bg-none text-muted-foreground',
+            'flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary/70'
+          )}
+        >
+          <span className='nav_link hidden md:block'>Admin</span>
+        </Link>
+      )}
     </>
   )
 }

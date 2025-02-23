@@ -11,13 +11,13 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.config({
-    extends: ['next'],
-    rules: {
-      'react/no-unescaped-entities': 'off',
+    extends: ['next', 'prettier']
+    // rules: {
+    //   'react/no-unescaped-entities': 'off',
 
-      '@typescript-eslint/no-unused-vars': 'off',
-      '@typescript-eslint/no-empty-object-type': 'error'
-    }
+    //   '@typescript-eslint/no-unused-vars': 'off',
+    //   '@typescript-eslint/no-empty-object-type': 'error'
+    // }
   })
 ]
 export default eslintConfig

@@ -12,7 +12,7 @@ export const APP_DESCRIPTION =
 //export const SERVER_URL =
 //  process.env.NEXT_PUBLIC_SERVER_URL || 'https://next-learn-dashboard.vercel.sh' FOR PRODUCTION ONLY
 
-export let role = 'admin'
+export const role = 'admin'
 
 export const navbarLinks = [
   {

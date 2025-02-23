@@ -1,4 +1,5 @@
 import { ClientSidebar } from '@/components/client/client-sidebar'
+import ClerkUser from '@/components/dashboard/clerk-user-sign-in'
 
 import { DashboardItems } from '@/components/dashboard/dashboard-items'
 import { ThemeToggle } from '@/components/dashboard/theme-toggle'
@@ -35,9 +36,8 @@ function ClientLayout({ children }: NavbarProps) {
             <DashboardItems />
             <div className='flex items-center gap-3'>
               <ThemeToggle />
-              <div>
-                <Button>User</Button>
-              </div>
+
+              <ClerkUser />
             </div>
           </div>
         </header>

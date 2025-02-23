@@ -1,4 +1,5 @@
 import { AdminSidebar } from '@/components/dashboard/admin-sidebar'
+import ClerkUser from '@/components/dashboard/clerk-user-sign-in'
 import { DashboardItems } from '@/components/dashboard/dashboard-items'
 import { ThemeToggle } from '@/components/dashboard/theme-toggle'
 import Footer from '@/components/shared/footer'
@@ -35,7 +36,7 @@ function AdminLayout({ children }: NavbarProps) {
             <div className='flex items-center gap-3'>
               <ThemeToggle />
               <div>
-                <Button>User</Button>
+                <ClerkUser />
               </div>
             </div>
           </div>

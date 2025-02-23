@@ -128,3 +128,15 @@ export const navClient = [
     ]
   }
 ]
+
+export const clientDefaultValues = {
+  name: '',
+  slug: '',
+  spupervisor: '',
+  category: '',
+  periodEnd: '',
+  status: '',
+  contactInfo: '',
+  userId: '',
+  isActive: true
+}

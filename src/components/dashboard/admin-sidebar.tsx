@@ -14,6 +14,8 @@ import { NavMain } from './nav-main'
 import { Logo } from '../shared/logo'
 import Link from 'next/link'
 import { navMain } from '@/lib/constants'
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
+import ClerkUser from './clerk-user-sign-in'
 
 export function AdminSidebar({
   ...props
@@ -29,7 +31,9 @@ export function AdminSidebar({
         <NavMain items={navMain} />
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
-      <SidebarFooter>USER</SidebarFooter>
+      <SidebarFooter>
+        <ClerkUser />
+      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   )

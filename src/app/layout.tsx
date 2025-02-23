@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-
+import { ClerkProvider } from '@clerk/nextjs'
 import { ThemeProvider } from 'next-themes'
 import { Toaster } from '@/components/ui/toaster'
 import { APP_DESCRIPTION, APP_NAME } from '@/lib/constants'
@@ -26,18 +26,32 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en' suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>
-        <ThemeProvider
-          attribute='class'
-          defaultTheme='light'
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Suspense fallback={<Loading />}>{children}</Suspense>
-          <Toaster />
-        </ThemeProvider>
-      </body>
-    </html>
+    <ClerkProvider
+      afterSignOutUrl={'/sign-in'}
+      appearance={{
+        elements: {
+          formButtonPrimary:
+            'bg-primary hover:bg-primary/80 text-sm !shadow-none'
+        }
+      }}
+    >
+      <html
+        lang='en'
+        suppressHydrationWarning
+        className='scroll-smooth antialiased'
+      >
+        <body className={`${inter.className} antialiased`}>
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='light'
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Suspense fallback={<Loading />}>{children}</Suspense>
+            <Toaster />
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }

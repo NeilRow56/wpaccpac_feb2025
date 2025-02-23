@@ -14,6 +14,7 @@ import { Logo } from '../shared/logo'
 import Link from 'next/link'
 import { navClient } from '@/lib/constants'
 import { NavMain } from '../dashboard/nav-main'
+import ClerkUser from '../dashboard/clerk-user-sign-in'
 
 export function ClientSidebar({
   ...props
@@ -29,7 +30,9 @@ export function ClientSidebar({
         <NavMain items={navClient} />
         {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
-      <SidebarFooter>USER</SidebarFooter>
+      <SidebarFooter>
+        <ClerkUser />
+      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   )

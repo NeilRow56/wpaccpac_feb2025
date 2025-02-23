@@ -27,10 +27,13 @@ model User {
 model Client {
   id              String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name            String
-  category        ClientCategory 
-  status          ClientStatus
+  slug            String
+  supervisor      String
+  category        String
+  periodEnding    String?
+  status          String
+  contactInfo     String?
   userId          String      @db.Uuid
-  contactInfo     String
   isActive        Boolean     @default(true)
   createdAt       DateTime    @default(now()) @db.Timestamp(0)
   updatedAt       DateTime    @default(now()) @db.Timestamp(0)
@@ -55,17 +58,3 @@ model YearFile {
   @@map("yearFiles")
 }
 
-enum ClientCategory {
-  limited_company
-  partnership
-  sole_trader
-  charity
-  other
-}
-
-enum ClientStatus {
-  awaiting_ml_checks
-  active
-  archived
-  stop_work
-}

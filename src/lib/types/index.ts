@@ -1,7 +1,7 @@
 import { z } from 'zod'
-import { insertClientSchema } from '../validators/client'
+import { clientSchema } from '../validators/client'
 
-export type Client = z.infer<typeof insertClientSchema> & {
+export type Client = z.infer<typeof clientSchema> & {
   id: string
   createdAt: Date
   updatedAt: Date

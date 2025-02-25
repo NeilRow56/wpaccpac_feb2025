@@ -129,12 +129,23 @@ export const navClient = [
   }
 ]
 
+export const CLIENT_TYPES = process.env.CLIENT_TYPES
+  ? process.env.CLIENT_TYPES.split(', ')
+  : [
+      'Limited_Company',
+      'Sole_Trader',
+      'Partnership',
+      'Tax_Return_Only',
+      'Charity'
+    ]
+export const DEFAULT_CLIENT_TYPE = 'Limited_Company'
+
 export const clientDefaultValues = {
   name: '',
   slug: '',
-  spupervisor: '',
-  category: '',
-  periodEnd: '',
+  supervisor: '',
+  category: DEFAULT_CLIENT_TYPE,
+  periodEnding: '',
   status: '',
   contactInfo: '',
   userId: '',

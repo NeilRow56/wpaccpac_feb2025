@@ -6,8 +6,8 @@ generator client {
 
 datasource db {
   provider  = "postgresql"
-  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  url       = env("DATABASE_URL") // uses connection pooling
+  directUrl = env("DATABASE_URL_UNPOOLED") // uses a direct connection
 }
 
 
@@ -16,11 +16,12 @@ datasource db {
 model User {
   id              String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   email           String         @unique(map: "user_email_idx")
-  name            String         @db.VarChar(80)
+  name            String?        @db.VarChar(80)
+  clerkUserId     String         @unique
   createdAt       DateTime       @default(now()) @db.Timestamp(0)
   updatedAt       DateTime       @default(now()) @db.Timestamp(0)
   clients         Client[]
- 
+  
     @@map("users")
 }
 
@@ -57,4 +58,3 @@ model YearFile {
 
   @@map("yearFiles")
 }
-

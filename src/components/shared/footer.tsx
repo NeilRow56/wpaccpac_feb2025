@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <footer className='border-t'>
-      <div className='items -center flex p-5'>
+      <div className='flex flex-col items-center justify-center p-5 md:flex-row'>
         <div className='space-x-8 pr-8'>
           <Link
             href='https://1manstartup.com/privacy-policy'
@@ -25,10 +25,14 @@ const Footer = () => {
           </Link>
           <span>|</span>
         </div>
+
         <span className='mr-8 flex items-center text-primary'>
           Contact - admin@wpaccpac.org
         </span>
-        Copyright © {currentYear}, {APP_NAME}. All Rights Reserved
+
+        <span className='lg:ml-8'>
+          Copyright © {currentYear}, {APP_NAME}. All Rights Reserved
+        </span>
       </div>
     </footer>
   )

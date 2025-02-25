@@ -6,7 +6,7 @@ const Loading = () => {
   // await delay(5)
   return (
     <div className='flex min-h-screen w-full items-center justify-center'>
-      <Image src={loader} height={150} width={150} alt='Loading...' />
+      <Image priority src={loader} height={150} width={150} alt='Loading...' />
     </div>
   )
 }

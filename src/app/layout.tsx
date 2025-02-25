@@ -7,6 +7,7 @@ import { Toaster } from '@/components/ui/toaster'
 import { APP_DESCRIPTION, APP_NAME } from '@/lib/constants'
 import Loading from './loading'
 import { Suspense } from 'react'
+import HeaderGetUser from '@/components/shared/header-get-user'
 // import ResponsiveNavbar from '@/components/navbar/responsive-nav'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -47,6 +48,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <HeaderGetUser />
             <Suspense fallback={<Loading />}>{children}</Suspense>
             <Toaster />
           </ThemeProvider>

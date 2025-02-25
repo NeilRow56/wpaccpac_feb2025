@@ -42,7 +42,7 @@ function ClientLayout({ children }: NavbarProps) {
           </div>
         </header>
 
-        <main className='container mx-auto mt-16 h-screen'>{children}</main>
+        <main className='container mx-auto mt-16 h-screen p-2'>{children}</main>
 
         <Footer />
       </SidebarInset>

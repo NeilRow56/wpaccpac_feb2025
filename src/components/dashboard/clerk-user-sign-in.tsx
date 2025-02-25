@@ -1,3 +1,4 @@
+import { checkUser } from '@/lib/check-user'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
 import React from 'react'
 
